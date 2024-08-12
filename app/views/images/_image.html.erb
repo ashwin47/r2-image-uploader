@@ -1,0 +1,11 @@
+<div id="<%= dom_id image %>" class="space-y-3">
+  <% if image.file.attached? %>
+    <%= image_tag image.file, class: "w-full h-48 object-cover rounded-md" %>
+  <% end %>
+  <h3 class="text-lg font-medium text-gray-900"><%= image.name %></h3>
+  <% if image.url.present? %>
+    <p class="text-sm text-gray-500 truncate" title="<%= image.url %>">
+      <%= image.url %>
+    </p>
+  <% end %>
+</div>
