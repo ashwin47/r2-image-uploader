@@ -2,7 +2,7 @@
 service: r2_image_uploader
 
 # Name of the container image.
-image: your-user/r2_image_uploader
+image: ashwinmk2016/r2_image_uploader
 
 # Deploy to these servers.
 servers:

@@ -58,3 +58,5 @@ end
 
 
 gem "aws-sdk-s3", "~> 1.157"
+
+gem "dockerfile-rails", ">= 1.6", :group => :development
