@@ -1,6 +1,8 @@
 class RegistrationsController < ApplicationController
   allow_unauthenticated_access
 
+  before_action :check_registrations_enabled
+
   def new
     @user = User.new
   end
@@ -19,5 +21,11 @@ class RegistrationsController < ApplicationController
 
   def user_params
     params.require(:user).permit(:email_address, :password, :password_confirmation)
+  end
+
+  def check_registrations_enabled
+    unless Rails.application.credentials.allow_registrations
+      redirect_to root_path, alert: "Registrations are currently disabled."
+    end
   end
 end

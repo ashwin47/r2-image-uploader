@@ -31,7 +31,9 @@
                 <%= button_to "Sign out", session_path, method: :delete, data: { turbo: false }, class: "text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium" %>
               <% else %>
                 <%= link_to "Sign in", new_session_path, class: "text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium" %>
-                <%= link_to "Sign up", new_registration_path, class: "text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium" %>
+                <% if registrations_enabled? %>
+                  <%= link_to "Sign up", new_registration_path, class: "text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium" %>
+                <% end %>
               <% end %>
             </div>
           </div>
