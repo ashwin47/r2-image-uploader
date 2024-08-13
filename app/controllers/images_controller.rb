@@ -66,7 +66,7 @@ class ImagesController < ApplicationController
 
   def update_image
     @image.assign_attributes(image_params.except(:file))
-    
+
     if image_params[:file].present?
       @image.file.attach(image_params[:file])
       @image.set_url

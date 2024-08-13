@@ -21,11 +21,11 @@ class ImagesControllerTest < ActionDispatch::IntegrationTest
 
   test "should create image" do
     assert_difference("Image.count") do
-      post images_url, params: { 
-        image: { 
-          name: "New Image", 
-          file: fixture_file_upload('test_image.jpg', 'image/jpeg')
-        } 
+      post images_url, params: {
+        image: {
+          name: "New Image",
+          file: fixture_file_upload("test_image.jpg", "image/jpeg")
+        }
       }
     end
 
@@ -61,6 +61,6 @@ class ImagesControllerTest < ActionDispatch::IntegrationTest
   private
 
   def login_as(user)
-    post session_url, params: { email_address: user.email_address, password: 'password' }
+    post session_url, params: { email_address: user.email_address, password: "password" }
   end
 end
