@@ -32,7 +32,7 @@
 
   <% if @image.file.attached? %>
     <div class="mt-8">
-      <%= image_tag url_for(@image.file), class: "w-full h-auto rounded-lg shadow-lg" %>
+      <%= image_tag @image.url, alt: @image.name, class: "w-full h-auto rounded-lg shadow-lg" %>
     </div>
   <% else %>
     <div class="mt-8 bg-yellow-50 border-l-4 border-yellow-400 p-4">
