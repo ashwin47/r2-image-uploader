@@ -1,6 +1,6 @@
 class ImagesController < ApplicationController
   before_action :require_authentication
-  before_action :set_image, only: %i[ show edit update destroy ]
+  before_action :set_image, only: %i[show edit update destroy]
 
   def index
     @images = Image.all.order(created_at: :desc)
@@ -52,7 +52,6 @@ class ImagesController < ApplicationController
       format.json { head :no_content }
     end
   end
-
 
   private
 
