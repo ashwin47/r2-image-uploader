@@ -1,12 +1,34 @@
-<% content_for :title, "Editing image" %>
+<%= form_with(model: @image, local: true, html: { multipart: true }, data: { turbo: false }) do |form| %>
+  <% if @image.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(@image.errors.count, "error") %> prohibited this image from being saved:</h2>
 
-<h1>Editing image</h1>
+      <ul>
+        <% @image.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
 
-<%= render "form", image: @image %>
+  <div>
+    <%= form.label :name, style: "display: block" %>
+    <%= form.text_field :name %>
+  </div>
 
-<br>
+  <div>
+    <%= form.label :file, style: "display: block" %>
+    <%= form.file_field :file %>
+  </div>
 
-<div>
-  <%= link_to "Show this image", @image %> |
-  <%= link_to "Back to images", images_path %>
-</div>
+  <% if @image.file.attached? %>
+    <div>
+      <p>Current image:</p>
+      <%= image_tag @image.file, style: "max-width: 300px;" %>
+    </div>
+  <% end %>
+
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>

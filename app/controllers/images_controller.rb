@@ -33,8 +33,7 @@ class ImagesController < ApplicationController
 
   def update
     respond_to do |format|
-      if @image.update(image_params)
-        @image.set_url if @image.file.attached? && @image.url.blank?
+      if update_image
         format.html { redirect_to image_url(@image), notice: "Image was successfully updated." }
         format.json { render :show, status: :ok, location: @image }
       else
@@ -63,5 +62,16 @@ class ImagesController < ApplicationController
 
   def image_params
     params.require(:image).permit(:name, :file)
+  end
+
+  def update_image
+    @image.assign_attributes(image_params.except(:file))
+    
+    if image_params[:file].present?
+      @image.file.attach(image_params[:file])
+      @image.set_url
+    end
+
+    @image.save
   end
 end

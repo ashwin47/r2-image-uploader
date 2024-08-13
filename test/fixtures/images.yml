@@ -1,9 +1,4 @@
-# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
-
+# test/fixtures/images.yml
 one:
-  name: MyString
-  url: MyString
-
-two:
-  name: MyString
-  url: MyString
+  name: Test Image
+  url: https://static.superforum.io/test_image_key
