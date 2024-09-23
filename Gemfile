@@ -56,6 +56,6 @@ group :development do
   gem "web-console"
 end
 
-gem "aws-sdk-s3", "~> 1.157"
+gem "aws-sdk-s3", "~> 1.164"
 
 gem "dockerfile-rails", ">= 1.6", group: :development
